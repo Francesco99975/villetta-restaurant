@@ -1,0 +1,71 @@
+body {
+  padding-top: 5rem;
+}
+
+@supports (display: grid) {
+  body {
+    display: grid;
+    grid-template-rows: 3.5rem auto fit-content(8rem);
+    grid-template-areas: "header" "main" "footer";
+    padding-top: 0;
+    height: 100vh;
+    scroll-padding-top: 3.5rem;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: #00000080;
+  display: none;
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.modal {
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  width: 55%;
+  border-radius: 15px;
+  background-color: white;
+  color: #295678;
+  border: 3px solid #d0e025;
+  padding: 0.5rem;
+  z-index: 201;
+}
+
+.open {
+  display: block !important;
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.main-header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+.btn {
+  font: inherit;
+  font-weight: bold;
+  border-radius: 25px;
+  background: transparent;
+  width: 50%;
+  cursor: pointer;
+  margin: 2rem;
+  padding: 1rem;
+  border: none;
+  text-align: center;
+}
