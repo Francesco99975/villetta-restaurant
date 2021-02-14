@@ -1,5 +1,6 @@
 {% load static %}
 
+<div class="backdrop"></div>
 <header class="main-header">
     {% comment %} Hamburger Menu {% endcomment %}
     <button class="toggle-button">
@@ -12,24 +13,24 @@
         <img src="" alt="LOGO" width="50px" height="50px">
     </div>
 
-    <nav class="main-nav">
-        <ul class="main-nav__items">
-            <li class="main-nav__item">
-                <a href="#">Party Menu</a>
-            </li>
-            <button type="button" class="btn btn-order">
-                Order Now!
-            </button>
-        </ul>
-    </nav>
+    <div class="nav__actions">
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item">
+                    <a href="#">Party Menu</a>
+                </li>
+            </ul>
+        </nav>
+
+        <button type="button" class="btn btn-order">
+            Order Now!
+        </button>
+    </div>
 </header>
 <nav class="mobile-nav">
     <ul class="mobile-nav__items">
         <li class="mobile-nav__item">
             <a href="#">Party Menu</a>
         </li>
-        <button type="button" class="btn btn-order">
-            Order Now!
-        </button>
     </ul>
 </nav>

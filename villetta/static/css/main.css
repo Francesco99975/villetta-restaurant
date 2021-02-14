@@ -33,7 +33,7 @@ body {
   width: 55%;
   border-radius: 15px;
   background-color: white;
-  color: #295678;
+  color: #083995;
   border: 3px solid #d0e025;
   padding: 0.5rem;
   z-index: 201;
@@ -51,6 +51,7 @@ body {
 
 main {
   grid-area: main;
+  background: #083995;
 }
 
 footer {
