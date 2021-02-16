@@ -16,7 +16,11 @@
     <div class="nav__actions">
         <nav class="main-nav">
             <ul class="main-nav__items">
-                <li class="main-nav__item">
+                <li 
+                {% comment %} {% if 'party' in reqest.path %}
+                    class="main-nav__item active"
+                    {% else %} {% endif %}{% endcomment %}
+                    class="main-nav__item">
                     <a href="#">Party Menu</a>
                 </li>
             </ul>

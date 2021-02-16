@@ -1,5 +1,28 @@
+@font-face {
+  font-family: "OleoScript";
+  src: url("../fonts/OleoScript-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OleoScript";
+  src: url("../fonts/OleoScript-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Tangerine";
+  src: url("../fonts/Tangerine-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Tangerine";
+  src: url("../fonts/Tangerine-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
 body {
   padding-top: 5rem;
+  font-family: "OleoScript", sans-serif, monospace;
 }
 
 @supports (display: grid) {
@@ -63,17 +86,29 @@ main {
 
 .brand__presentation {
   background-color: #083995;
+  color: #fffdd0;
+  font-size: 2.7rem;
+  text-align: center;
   height: 100vh;
+  font-family: "Tangerine";
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-image: url("../images/hook.jpg");
 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.specials h2,
+.specials h3,
+.regulars h2,
+.regulars h3 {
+  color: #083995;
 }
 
 .bio__desc,
@@ -99,6 +134,43 @@ main {
 
 .bio__desc {
   width: 60%;
+  color: #083995;
+}
+
+.specials h1,
+.regulars h1 {
+  font-family: "Tangerine";
+  font-size: 5rem;
+  color: #fffdd0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.specials h1 {
+  background-image: url("../images/special1.jpg");
+}
+
+.regulars h1 {
+  background-image: url("../images/menu2.jpg");
+}
+
+.extra-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 20rem;
+  background-image: url("../images/extra.jpg");
 }
 
 .menu-item__info {
@@ -131,6 +203,11 @@ main {
   flex-direction: column;
 }
 
+.contact h1 {
+  font-size: 2.3rem;
+  letter-spacing: 0.2rem;
+}
+
 .social {
   width: 30%;
   margin: 1.2rem;
@@ -156,5 +233,9 @@ main {
 
   .menu-item__info {
     align-items: flex-start;
+  }
+
+  .brand__presentation {
+    font-size: 5rem;
   }
 }

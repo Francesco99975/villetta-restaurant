@@ -83,13 +83,10 @@
 }
 
 .main-nav__item a:hover,
-.main-nav__item a:active {
+.main-nav__item a:active,
+.active {
   color: #d0e025;
   border-bottom: 2px #d0e025 solid;
-}
-
-.active {
-  color: #d0e025 !important;
 }
 
 .toggle-button {
