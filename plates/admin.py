@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Special
+from .models import Plate
 
 
-class SpecialAdmin(admin.ModelAdmin):
+class PlateAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price', 'is_published')
 
     list_display_links = ('id', 'name')
@@ -16,4 +16,4 @@ class SpecialAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-admin.site.register(Special, SpecialAdmin)
+admin.site.register(Plate, PlateAdmin)

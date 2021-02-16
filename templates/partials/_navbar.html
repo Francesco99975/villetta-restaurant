@@ -17,10 +17,12 @@
         <nav class="main-nav">
             <ul class="main-nav__items">
                 <li 
-                {% comment %} {% if 'party' in reqest.path %}
+                {% if 'party' in reqest.path %}
                     class="main-nav__item active"
-                    {% else %} {% endif %}{% endcomment %}
-                    class="main-nav__item">
+                {% else %} 
+                    class="main-nav__item"
+                {% endif %}
+                    >
                     <a href="#">Party Menu</a>
                 </li>
             </ul>

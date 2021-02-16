@@ -17,51 +17,58 @@
         </div>
     </section>
 
+    {% if specials %}
+    
     <section class="specials">
         <h1>Specials Menu</h1>
-        <div class="menu-item">
-            <div class="menu-item__info">
-                <h2>Special Name - Price</h2>
-                <h3>Description</h3>
-            </div>
-            <div class="menu-item__image">
-                <img src="" alt="SpecialImg" class="menu-item__img">
-            </div>
-        </div>
+        {% for special in specials %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>Special Name - Price</h2>
-                <h3>Description</h3>
+                <h2>{{ special.name }} - ${{ special.price }}</h2>
+                <h3>{{ special.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="" alt="SpecialImg" class="menu-item__img">
+                <img src="{{ special.image_path.url }}" alt="SpecialImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
+
+        {% endfor %}
     </section>
 
+    {% else %}
+    
+    <section class="empty">
+        <h1>No Specials available at this time</h1>
+    </section>
+
+    {% endif %}
+
+    {% if  plates %}
     <section class="regulars">
         <h1>Menu</h1>
-        <div class="menu-item">
-            <div class="menu-item__info">
-                <h2>Plate Name - Price</h2>
-                <h3>Description</h3>
-            </div>
-            <div class="menu-item__image">
-                <img src="" alt="PlateImg" class="menu-item__img">
-            </div>
-        </div>
+        {% for plate in plates %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>Plate Name - Price</h2>
-                <h3>Description</h3>
+                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
+                <h3>{{ plate.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="" alt="PlateImg" class="menu-item__img">
+                <img src="{{ plate.image_path.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
+
+        {% endfor %}
     </section>
+
+    {% else %}
+
+    <section class="empty">
+        <h1>No items on the menu at this time</h1>
+    </section>
+
+    {% endif %}
 
     <div class="extra-bg">
     </div>

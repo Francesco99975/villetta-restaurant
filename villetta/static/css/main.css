@@ -76,6 +76,17 @@ body {
   background-color: white;
 }
 
+.empty {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2rem;
+  color: #083995;
+  background-color: #fffdd0;
+  text-align: center;
+}
+
 .main-header {
   grid-area: header;
 }

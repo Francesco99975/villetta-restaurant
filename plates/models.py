@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Special(models.Model):
+class Plate(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     description = models.TextField(max_length=300)
