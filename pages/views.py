@@ -5,11 +5,23 @@ from plates.models import Plate
 
 
 def index(request):
-    specials = Special.objects.all()
-    plates = Plate.objects.all()
+    specials = Special.objects.all().filter(is_published=True)
+    antipasti = Plate.objects.all().filter(is_published=True, course_type="A")
+    primi = Plate.objects.all().filter(is_published=True, course_type="P")
+    secondi = Plate.objects.all().filter(is_published=True, course_type="S")
+    pizze = Plate.objects.all().filter(is_published=True, course_type="Z")
+    desserts = Plate.objects.all().filter(is_published=True, course_type="D")
+    beverages = Plate.objects.all().filter(is_published=True, course_type="B")
 
     context = {
         'specials': specials,
-        'plates': plates
+        'plates': {
+            'antipasti': antipasti,
+            'primi': primi,
+            'secondi': secondi,
+            'pizze': pizze,
+            'desserts': desserts,
+            'beverages': beverages
+        }
     }
     return render(request, 'pages/index.html', context)

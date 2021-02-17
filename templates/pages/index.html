@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
 <main>
     <section class="brand__presentation">
@@ -7,11 +8,11 @@
 
     <section class="bio">
         <div class="bio__img">
-            <img src="" alt="BioImg">
+            <img src="{% static 'images/bio.jpg' %}" alt="BioImg" height="500" width="350">
         </div>
         <div class="bio__desc">
             <h2>Name and Lastname</h2>
-            <div>
+            <div class="bio__text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus aut totam architecto iusto blanditiis maxime enim obcaecati, accusantium, nesciunt quibusdam omnis magnam consequatur porro consectetur repudiandae reiciendis molestias. Veritatis, in!
             </div>
         </div>
@@ -29,7 +30,7 @@
                 <h3>{{ special.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ special.image_path.url }}" alt="SpecialImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ special.image.url }}" alt="SpecialImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
@@ -47,7 +48,10 @@
     {% if  plates %}
     <section class="regulars">
         <h1>Menu</h1>
-        {% for plate in plates %}
+
+        {% if  plates.antipasti %}
+        <div class="course-title">Antipasto</div>
+        {% for plate in plates.antipasti %}
 
         <div class="menu-item">
             <div class="menu-item__info">
@@ -55,11 +59,98 @@
                 <h3>{{ plate.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image_path.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
         {% endfor %}
+        {% endif %}
+
+        {% if  plates.primi %}
+        <div class="course-title">Primi</div>
+        {% for plate in plates.primi %}
+
+        <div class="menu-item">
+            <div class="menu-item__info">
+                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
+                <h3>{{ plate.description }}</h3>
+            </div>
+            <div class="menu-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+
+        {% if  plates.secondi %}
+        <div class="course-title">Secondo</div>
+        {% for plate in plates.secondi %}
+
+        <div class="menu-item">
+            <div class="menu-item__info">
+                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
+                <h3>{{ plate.description }}</h3>
+            </div>
+            <div class="menu-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.pizze %}
+        <div class="course-title">Pizza</div>
+        {% for plate in plates.pizze %}
+
+        <div class="menu-item">
+            <div class="menu-item__info">
+                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
+                <h3>{{ plate.description }}</h3>
+            </div>
+            <div class="menu-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.desserts %}
+        <div class="course-title">Dessert</div>
+        {% for plate in plates.desserts %}
+
+        <div class="menu-item">
+            <div class="menu-item__info">
+                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
+                <h3>{{ plate.description }}</h3>
+            </div>
+            <div class="menu-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.beverages %}
+        <div class="course-title">Beverage</div>
+        {% for plate in plates.beverages %}
+
+        <div class="menu-item">
+            <div class="menu-item__info">
+                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
+                <h3>{{ plate.description }}</h3>
+            </div>
+            <div class="menu-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
     </section>
 
     {% else %}

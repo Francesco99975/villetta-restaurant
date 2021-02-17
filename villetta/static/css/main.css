@@ -41,8 +41,8 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  width: 100vw;
-  height: 100vh;
+  width: 110vw;
+  height: 110vh;
   background: #00000080;
   display: none;
   opacity: 0;
@@ -144,8 +144,16 @@ main {
 }
 
 .bio__desc {
-  width: 60%;
+  width: 70%;
   color: #083995;
+}
+
+.bio__desc h2 {
+  font-size: 3rem;
+}
+
+.bio__text {
+  font-size: 1.5rem;
 }
 
 .specials h1,
@@ -165,6 +173,18 @@ main {
   width: 100%;
   margin: 0;
   padding: 0;
+}
+
+.course-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Tangerine";
+  font-size: 3.8rem;
+  background-color: #083995;
+  height: 7rem;
 }
 
 .specials h1 {

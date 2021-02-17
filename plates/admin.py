@@ -3,13 +3,13 @@ from .models import Plate
 
 
 class PlateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price', 'is_published')
+    list_display = ('id', 'name', 'price', 'is_published', 'course_type')
 
     list_display_links = ('id', 'name')
 
     list_filter = ('price', )
 
-    list_editable = ('is_published', )
+    list_editable = ('is_published', 'course_type')
 
     search_fields = ('name', 'description')
 
