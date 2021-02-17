@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'specials.apps.SpecialsConfig',
     'plates.apps.PlatesConfig',
+    'contacts.apps.ContactsConfig',
+    'preferences',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,6 +71,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'preferences.context_processors.preferences_cp',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from specials.models import Special
 from plates.models import Plate
+from preferences import Preferences
 
 
 def index(request):

@@ -167,12 +167,12 @@
     <section class="contact">
         <h1>Contact</h1>
         <div class="divider"></div>
-        <h3>Tel: +1 4165558888</h3>
-        <h3>Email: email@email.com</h3>
-        <h3>Address</h3>
+        <h3><a href="tel:{{ preferences.Contact.telephone_number }}">{{ preferences.Contact.telephone_number }}</a></h3>
+        <h3><a href="mailto:{{ preferences.Contact.email }}">{{ preferences.Contact.email }}</a></h3>
+        <h3><a href="http://" target="_blank" rel="noopener noreferrer">{{ preferences.Contact.address }}</a></h3>
         <div class="social">
-            <i class="fab fa-facebook-square"></i>
-            <i class="fab fa-instagram-square"></i>
+            <a href="{{ preferences.Contact.facebook_link }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-square"></i></a>
+            <a href="{{ preferences.Contact.instagram_link }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram-square"></i></a>
         </div>
     </section>
 </main>

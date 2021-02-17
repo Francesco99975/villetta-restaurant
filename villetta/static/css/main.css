@@ -239,6 +239,14 @@ main {
   letter-spacing: 0.2rem;
 }
 
+.contact h3 a {
+  color: white;
+}
+
+.contact h3 a:hover {
+  border-bottom: 3px solid white;
+}
+
 .social {
   width: 30%;
   margin: 1.2rem;
@@ -250,6 +258,7 @@ main {
 .social i {
   font-size: 2.7rem;
   cursor: pointer;
+  color: white;
 }
 
 .social i:hover {
