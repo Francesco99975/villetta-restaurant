@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'specials.apps.SpecialsConfig',
     'plates.apps.PlatesConfig',
-    'contacts.apps.ContactsConfig',
+    'settings.apps.SettingsConfig',
     'preferences',
     'django.contrib.sites',
     'django.contrib.admin',
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_rename_app',
 ]
 
 MIDDLEWARE = [
