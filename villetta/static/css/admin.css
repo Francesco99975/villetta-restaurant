@@ -35,3 +35,8 @@ a.button {
   background: #083995;
   color: white;
 }
+
+.app-sites,
+.field-sites {
+  display: none;
+}
