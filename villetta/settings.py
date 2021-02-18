@@ -33,6 +33,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
+# DEBUG = True
+
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',
                  'https://villetta-django.herokuapp.com/']
 
@@ -147,5 +149,7 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SITE_ID = 1
 
 django_heroku.settings(locals())
