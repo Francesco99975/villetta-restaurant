@@ -92,8 +92,7 @@
 .main-nav__item a:hover,
 .main-nav__item a:active,
 .active {
-  color: #d0e025;
-  border-bottom: 2px #d0e025 solid;
+  border-bottom: 2px #083995 solid;
 }
 
 .toggle-button {
@@ -127,6 +126,22 @@
   margin: 1rem;
   font-size: 1rem;
   width: auto;
+  animation: wiggle 500ms 1s 8 ease-out none;
+}
+
+@keyframes wiggle {
+  0% {
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+  }
+  50% {
+    -webkit-transform: rotateZ(-10deg);
+    transform: rotateZ(-10deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(10deg);
+    transform: rotateZ(10deg);
+  }
 }
 
 @media (min-width: 55rem) {
@@ -143,6 +158,7 @@
   .brand {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     padding: 1rem;
   }
 }
