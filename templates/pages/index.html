@@ -34,6 +34,14 @@
             </div>
         </div>
 
+        {% if forloop.counter < specials.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
         {% endfor %}
     </section>
 
@@ -63,6 +71,14 @@
             </div>
         </div>
 
+        {% if forloop.counter < plates.antipasti.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
         {% endfor %}
         {% endif %}
 
@@ -79,6 +95,14 @@
                 <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
+
+        {% if forloop.counter < plates.primi.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
 
         {% endfor %}
         {% endif %}
@@ -98,6 +122,14 @@
             </div>
         </div>
 
+        {% if forloop.counter < plates.secondi.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
         {% endfor %}
         {% endif %}
 
@@ -114,6 +146,14 @@
                 <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
+
+        {% if forloop.counter < plates.pizze.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
 
         {% endfor %}
         {% endif %}
@@ -132,6 +172,14 @@
             </div>
         </div>
 
+        {% if forloop.counter < plates.desserts.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
         {% endfor %}
         {% endif %}
 
@@ -148,6 +196,14 @@
                 <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
+
+        {% if forloop.counter < plates.beverages.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
 
         {% endfor %}
         {% endif %}

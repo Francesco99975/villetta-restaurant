@@ -117,16 +117,22 @@
   margin: 0.6rem 0;
 }
 
-.btn-order {
+.btn-order{
   letter-spacing: 0.2rem;
   text-transform: uppercase;
-  color: #d0e025;
   background-color: #083995;
+  color: #d0e025;
   border-radius: 15px;
   margin: 1rem;
   font-size: 1rem;
   width: auto;
   animation: wiggle 500ms 1s 8 ease-out none;
+}
+
+.btn-order:hover {
+  background-color: transparent;
+  border: 3px solid #d0e025;
+  color: #083995;
 }
 
 @keyframes wiggle {

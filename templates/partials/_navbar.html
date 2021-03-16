@@ -37,9 +37,16 @@
     </div>
 
     <div class="nav__actions">
-        <button type="button" class="btn btn-order">
+    {% if checkout %}
+    <a href="#" class="btn btn-order">
+            Checkout!
+    </a>
+    {% else %}
+    <a href="{% url 'order' %}" class="btn btn-order">
             Order Now!
-        </button>
+    </a>
+    {% endif %}
+        
     </div>
 </header>
 <nav class="mobile-nav">

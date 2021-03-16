@@ -23,6 +23,31 @@ def index(request):
             'pizze': pizze,
             'desserts': desserts,
             'beverages': beverages
-        }
+        },
+        'checkout': False
     }
     return render(request, 'pages/index.html', context)
+
+
+def order(request):
+    specials = Special.objects.all().filter(is_published=True)
+    antipasti = Plate.objects.all().filter(is_published=True, course_type="A")
+    primi = Plate.objects.all().filter(is_published=True, course_type="P")
+    secondi = Plate.objects.all().filter(is_published=True, course_type="S")
+    pizze = Plate.objects.all().filter(is_published=True, course_type="Z")
+    desserts = Plate.objects.all().filter(is_published=True, course_type="D")
+    beverages = Plate.objects.all().filter(is_published=True, course_type="B")
+
+    context = {
+        'specials': specials,
+        'plates': {
+            'antipasti': antipasti,
+            'primi': primi,
+            'secondi': secondi,
+            'pizze': pizze,
+            'desserts': desserts,
+            'beverages': beverages
+        },
+        'checkout': True
+    }
+    return render(request, 'pages/order.html', context)

@@ -1,0 +1,198 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %}
+<main>
+    {% if specials %}
+    
+    <section class="specials ord-section">
+        <h1>Specials Menu</h1>
+        {% for special in specials %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ special.name }}</h2>
+                <h3>{{ special.description }}</h3>
+                <h2>${{ special.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ special.image.url }}" alt="SpecialImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < specials.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+    </section>
+
+    {% endif %}
+
+    {% if  plates %}
+    <section class="regulars ord-section">
+        <h1>Menu</h1>
+
+        {% if  plates.antipasti %}
+        <div class="course-title">Antipasto</div>
+        {% for plate in plates.antipasti %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ plate.name }}</h2>
+                <h3>{{ plate.description }}</h3>
+                <h2>${{ plate.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < plates.antipasti.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.primi %}
+        <div class="course-title">Primo</div>
+        {% for plate in plates.primi %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ plate.name }}</h2>
+                <h3>{{ plate.description }}</h3>
+                <h2>${{ plate.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < plates.primi.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+
+        {% if  plates.secondi %}
+        <div class="course-title">Secondo</div>
+        {% for plate in plates.secondi %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ plate.name }}</h2>
+                <h3>{{ plate.description }}</h3>
+                <h2>${{ plate.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < plates.secondi.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.pizze %}
+        <div class="course-title">Pizza</div>
+        {% for plate in plates.pizze %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ plate.name }}</h2>
+                <h3>{{ plate.description }}</h3>
+                <h2>${{ plate.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < plates.pizze.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.desserts %}
+        <div class="course-title">Dessert</div>
+        {% for plate in plates.desserts %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ plate.name }}</h2>
+                <h3>{{ plate.description }}</h3>
+                <h2>${{ plate.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < plates.desserts.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+
+        {% if  plates.beverages %}
+        <div class="course-title">Beverage</div>
+        {% for plate in plates.beverages %}
+
+        <div class="order-item">
+            <div class="order-item__info">
+                <h2>{{ plate.name }}</h2>
+                <h3>{{ plate.description }}</h3>
+                <h2>${{ plate.price }}</h2>
+            </div>
+            <div class="order-item__image">
+                <img src="{{ plate.image.url }}" alt="PlateImg" class="order-item__img" height="100" width="100">
+            </div>
+        </div>
+
+        {% if forloop.counter < plates.beverages.count %}
+        <div class="item-divider">
+            <div class="line-sx"></div>
+            <div class="center"></div>
+            <div class="line-dx"></div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+        {% endif %}
+    </section>
+    {% endif %}
+</main>
+{% endblock content %}
