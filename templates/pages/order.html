@@ -1,5 +1,10 @@
 {% extends 'base.html' %} 
 {% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/order.css' %}">
+{% endblock styles %}
+
 {% block content %}
 <main>
     {% if specials %}
@@ -196,3 +201,8 @@
     {% endif %}
 </main>
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/order.js' %}"></script>
+{% endblock scripts %}
+
