@@ -1,31 +1,38 @@
 import json
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponse
-from specials.models import Special
-from plates.models import Plate
+from dishes.models import Dish
 from preferences import Preferences
 from django.core import serializers
+from carton.cart import Cart
 
 
 def index(request):
-    specials = Special.objects.all().filter(is_published=True)
-    antipasti = Plate.objects.all().filter(is_published=True, course_type="A")
-    primi = Plate.objects.all().filter(is_published=True, course_type="P")
-    secondi = Plate.objects.all().filter(is_published=True, course_type="S")
-    pizze = Plate.objects.all().filter(is_published=True, course_type="Z")
-    desserts = Plate.objects.all().filter(is_published=True, course_type="D")
-    beverages = Plate.objects.all().filter(is_published=True, course_type="B")
+    specials = Dish.objects.all().filter(is_published=True, is_special=True)
+    antipasti = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="A")
+    primi = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="P")
+    secondi = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="S")
+    pizze = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="Z")
+    desserts = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="D")
+    beverages = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="B")
 
     context = {
         'specials': specials,
-        'plates': {
+        'dishes': {
             'antipasti': antipasti,
             'primi': primi,
             'secondi': secondi,
             'pizze': pizze,
             'desserts': desserts,
-            'beverages': beverages
+            'beverages': beverages,
+            'qty': len(antipasti) + len(primi) + len(secondi) + len(pizze) + len(desserts) + len(beverages)
         },
         'checkout': False
     }
@@ -33,23 +40,30 @@ def index(request):
 
 
 def order(request):
-    specials = Special.objects.all().filter(is_published=True)
-    antipasti = Plate.objects.all().filter(is_published=True, course_type="A")
-    primi = Plate.objects.all().filter(is_published=True, course_type="P")
-    secondi = Plate.objects.all().filter(is_published=True, course_type="S")
-    pizze = Plate.objects.all().filter(is_published=True, course_type="Z")
-    desserts = Plate.objects.all().filter(is_published=True, course_type="D")
-    beverages = Plate.objects.all().filter(is_published=True, course_type="B")
+    specials = Dish.objects.all().filter(is_published=True, is_special=True)
+    antipasti = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="A")
+    primi = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="P")
+    secondi = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="S")
+    pizze = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="Z")
+    desserts = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="D")
+    beverages = Dish.objects.all().filter(
+        is_published=True, is_special=False, course_type="B")
 
     context = {
         'specials': specials,
-        'plates': {
+        'dishes': {
             'antipasti': antipasti,
             'primi': primi,
             'secondi': secondi,
             'pizze': pizze,
             'desserts': desserts,
-            'beverages': beverages
+            'beverages': beverages,
+            'qty': len(antipasti) + len(primi) + len(secondi) + len(pizze) + len(desserts) + len(beverages)
         },
         'checkout': True
     }
@@ -58,19 +72,19 @@ def order(request):
 
 def items(request):
     specials = serializers.serialize(
-        'json', Special.objects.all().filter(is_published=True))
+        'json', Dish.objects.all().filter(is_published=True, is_special=True))
     antipasti = serializers.serialize(
-        'json', Plate.objects.all().filter(is_published=True, course_type="A"))
+        'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="A"))
     primi = serializers.serialize(
-        'json', Plate.objects.all().filter(is_published=True, course_type="P"))
+        'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="P"))
     secondi = serializers.serialize(
-        'json', Plate.objects.all().filter(is_published=True, course_type="S"))
+        'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="S"))
     pizze = serializers.serialize(
-        'json', Plate.objects.all().filter(is_published=True, course_type="Z"))
+        'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="Z"))
     desserts = serializers.serialize(
-        'json', Plate.objects.all().filter(is_published=True, course_type="D"))
+        'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="D"))
     beverages = serializers.serialize(
-        'json', Plate.objects.all().filter(is_published=True, course_type="B"))
+        'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="B"))
 
     return JsonResponse({
         'specials': json.loads(specials),
@@ -81,3 +95,21 @@ def items(request):
         'desserts': json.loads(desserts),
         'beverages': json.loads(beverages)
     })
+
+
+def add_to_bag(request, dish_id):
+    cart = Cart(request.session)
+    dish = Dish.objects.all().get(id=dish_id)
+    cart.add(dish, price=dish.price)
+    return HttpResponse("Dish Added to bag")
+
+
+def remove_from_bag(request, dish_id):
+    cart = Cart(request.session)
+    dish = Dish.objects.all().get(id=dish_id)
+    cart.remove(dish)
+    return HttpResponse("Dish Removed from bag")
+
+
+def show_bag(request):
+    return render(request, 'pages/bag.html')

@@ -43,10 +43,10 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1',
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
-    'specials.apps.SpecialsConfig',
-    'plates.apps.PlatesConfig',
+    'dishes.apps.DishesConfig',
     'settings.apps.SettingsConfig',
     'preferences',
+    'carton',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -151,5 +151,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SITE_ID = 1
+
+CART_PRODUCT_MODEL = 'dishes.models.Dish'
 
 django_heroku.settings(locals())

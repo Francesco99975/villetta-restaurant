@@ -38,8 +38,8 @@
 
     <div class="nav__actions">
     {% if checkout %}
-    <a href="#" class="btn btn-order">
-            Checkout!
+    <a href="{% url 'bag' %}" class="btn btn-order">
+            View Order
     </a>
     {% else %}
     <a href="{% url 'order' %}" class="btn btn-order">

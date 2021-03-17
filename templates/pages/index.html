@@ -53,25 +53,25 @@
 
     {% endif %}
 
-    {% if  plates %}
+    {% if  dishes.qty > 0 %}
     <section class="regulars">
         <h1>Menu</h1>
 
-        {% if  plates.antipasti %}
+        {% if  dishes.antipasti %}
         <div class="course-title">Antipasto</div>
-        {% for plate in plates.antipasti %}
+        {% for dish in dishes.antipasti %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
-                <h3>{{ plate.description }}</h3>
+                <h2>{{ dish.name }} - ${{ dish.price }}</h2>
+                <h3>{{ dish.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ dish.image.url }}" alt="dishImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
-        {% if forloop.counter < plates.antipasti.count %}
+        {% if forloop.counter < dishes.antipasti.count %}
         <div class="item-divider">
             <div class="line-sx"></div>
             <div class="center"></div>
@@ -82,21 +82,21 @@
         {% endfor %}
         {% endif %}
 
-        {% if  plates.primi %}
+        {% if  dishes.primi %}
         <div class="course-title">Primo</div>
-        {% for plate in plates.primi %}
+        {% for dish in dishes.primi %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
-                <h3>{{ plate.description }}</h3>
+                <h2>{{ dish.name }} - ${{ dish.price }}</h2>
+                <h3>{{ dish.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ dish.image.url }}" alt="dishImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
-        {% if forloop.counter < plates.primi.count %}
+        {% if forloop.counter < dishes.primi.count %}
         <div class="item-divider">
             <div class="line-sx"></div>
             <div class="center"></div>
@@ -108,21 +108,21 @@
         {% endif %}
 
 
-        {% if  plates.secondi %}
+        {% if  dishes.secondi %}
         <div class="course-title">Secondo</div>
-        {% for plate in plates.secondi %}
+        {% for dish in dishes.secondi %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
-                <h3>{{ plate.description }}</h3>
+                <h2>{{ dish.name }} - ${{ dish.price }}</h2>
+                <h3>{{ dish.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ dish.image.url }}" alt="dishImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
-        {% if forloop.counter < plates.secondi.count %}
+        {% if forloop.counter < dishes.secondi.count %}
         <div class="item-divider">
             <div class="line-sx"></div>
             <div class="center"></div>
@@ -133,21 +133,21 @@
         {% endfor %}
         {% endif %}
 
-        {% if  plates.pizze %}
+        {% if  dishes.pizze %}
         <div class="course-title">Pizza</div>
-        {% for plate in plates.pizze %}
+        {% for dish in dishes.pizze %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
-                <h3>{{ plate.description }}</h3>
+                <h2>{{ dish.name }} - ${{ dish.price }}</h2>
+                <h3>{{ dish.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ dish.image.url }}" alt="dishImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
-        {% if forloop.counter < plates.pizze.count %}
+        {% if forloop.counter < dishes.pizze.count %}
         <div class="item-divider">
             <div class="line-sx"></div>
             <div class="center"></div>
@@ -158,21 +158,21 @@
         {% endfor %}
         {% endif %}
 
-        {% if  plates.desserts %}
+        {% if  dishes.desserts %}
         <div class="course-title">Dessert</div>
-        {% for plate in plates.desserts %}
+        {% for dish in dishes.desserts %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
-                <h3>{{ plate.description }}</h3>
+                <h2>{{ dish.name }} - ${{ dish.price }}</h2>
+                <h3>{{ dish.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ dish.image.url }}" alt="dishImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
-        {% if forloop.counter < plates.desserts.count %}
+        {% if forloop.counter < dishes.desserts.count %}
         <div class="item-divider">
             <div class="line-sx"></div>
             <div class="center"></div>
@@ -183,21 +183,21 @@
         {% endfor %}
         {% endif %}
 
-        {% if  plates.beverages %}
+        {% if  dishes.beverages %}
         <div class="course-title">Beverage</div>
-        {% for plate in plates.beverages %}
+        {% for dish in dishes.beverages %}
 
         <div class="menu-item">
             <div class="menu-item__info">
-                <h2>{{ plate.name }} - ${{ plate.price }}</h2>
-                <h3>{{ plate.description }}</h3>
+                <h2>{{ dish.name }} - ${{ dish.price }}</h2>
+                <h3>{{ dish.description }}</h3>
             </div>
             <div class="menu-item__image">
-                <img src="{{ plate.image.url }}" alt="PlateImg" class="menu-item__img" height="300" width="300">
+                <img src="{{ dish.image.url }}" alt="dishImg" class="menu-item__img" height="300" width="300">
             </div>
         </div>
 
-        {% if forloop.counter < plates.beverages.count %}
+        {% if forloop.counter < dishes.beverages.count %}
         <div class="item-divider">
             <div class="line-sx"></div>
             <div class="center"></div>
