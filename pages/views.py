@@ -1,5 +1,5 @@
 import json
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponse
 from dishes.models import Dish
@@ -86,6 +86,8 @@ def items(request):
     beverages = serializers.serialize(
         'json', Dish.objects.all().filter(is_published=True, is_special=False, course_type="B"))
 
+    cart = Cart(request.session)
+
     return JsonResponse({
         'specials': json.loads(specials),
         'antipasti': json.loads(antipasti),
@@ -93,7 +95,8 @@ def items(request):
         'secondi': json.loads(secondi),
         'pizze': json.loads(pizze),
         'desserts': json.loads(desserts),
-        'beverages': json.loads(beverages)
+        'beverages': json.loads(beverages),
+        'bag-qty': cart.count
     })
 
 
@@ -101,14 +104,20 @@ def add_to_bag(request, dish_id):
     cart = Cart(request.session)
     dish = Dish.objects.all().get(id=dish_id)
     cart.add(dish, price=dish.price)
-    return HttpResponse("Dish Added to bag")
+    return JsonResponse({
+        'message': f'{dish.name} added to Bag!',
+        'bag-qty': cart.count
+    })
 
 
 def remove_from_bag(request, dish_id):
     cart = Cart(request.session)
     dish = Dish.objects.all().get(id=dish_id)
     cart.remove(dish)
-    return HttpResponse("Dish Removed from bag")
+    return JsonResponse({
+        'message': f'{dish.name} removed from Bag!',
+        'bag-qty': cart.count
+    })
 
 
 def show_bag(request):

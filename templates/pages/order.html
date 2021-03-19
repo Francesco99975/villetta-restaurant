@@ -13,7 +13,7 @@
         <h1>Specials Menu</h1>
         {% for special in specials %}
 
-        <a href="{% url 'add-to-bag' special.id%}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ special.name }}</h2>
                 <h3>{{ special.description }}</h3>
@@ -22,7 +22,7 @@
             <div class="order-item__image">
                 <img src="{{ special.image.url }}" alt="SpecialImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < specials.count %}
         <div class="item-divider">
@@ -45,7 +45,7 @@
         <div class="course-title">Antipasto</div>
         {% for dish in dishes.antipasti %}
 
-        <a href="{% url 'add-to-bag' dish.id %}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ dish.name }}</h2>
                 <h3>{{ dish.description }}</h3>
@@ -54,7 +54,7 @@
             <div class="order-item__image">
                 <img src="{{ dish.image.url }}" alt="dishImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < dishes.antipasti.count %}
         <div class="item-divider">
@@ -71,7 +71,7 @@
         <div class="course-title">Primo</div>
         {% for dish in dishes.primi %}
 
-        <a href="{% url 'add-to-bag' dish.id %}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ dish.name }}</h2>
                 <h3>{{ dish.description }}</h3>
@@ -80,7 +80,7 @@
             <div class="order-item__image">
                 <img src="{{ dish.image.url }}" alt="dishImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < dishes.primi.count %}
         <div class="item-divider">
@@ -98,7 +98,7 @@
         <div class="course-title">Secondo</div>
         {% for dish in dishes.secondi %}
 
-        <a href="{% url 'add-to-bag' dish.id %}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ dish.name }}</h2>
                 <h3>{{ dish.description }}</h3>
@@ -107,7 +107,7 @@
             <div class="order-item__image">
                 <img src="{{ dish.image.url }}" alt="dishImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < dishes.secondi.count %}
         <div class="item-divider">
@@ -124,7 +124,7 @@
         <div class="course-title">Pizza</div>
         {% for dish in dishes.pizze %}
 
-        <a href="{% url 'add-to-bag' dish.id %}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ dish.name }}</h2>
                 <h3>{{ dish.description }}</h3>
@@ -133,7 +133,7 @@
             <div class="order-item__image">
                 <img src="{{ dish.image.url }}" alt="dishImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < dishes.pizze.count %}
         <div class="item-divider">
@@ -150,7 +150,7 @@
         <div class="course-title">Dessert</div>
         {% for dish in dishes.desserts %}
 
-        <a href="{% url 'add-to-bag' dish.id %}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ dish.name }}</h2>
                 <h3>{{ dish.description }}</h3>
@@ -159,7 +159,7 @@
             <div class="order-item__image">
                 <img src="{{ dish.image.url }}" alt="dishImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < dishes.desserts.count %}
         <div class="item-divider">
@@ -176,7 +176,7 @@
         <div class="course-title">Beverage</div>
         {% for dish in dishes.beverages %}
 
-        <a href="{% url 'add-to-bag' dish.id %}" class="order-item">
+        <div class="order-item">
             <div class="order-item__info">
                 <h2>{{ dish.name }}</h2>
                 <h3>{{ dish.description }}</h3>
@@ -185,7 +185,7 @@
             <div class="order-item__image">
                 <img src="{{ dish.image.url }}" alt="dishImg" class="order-item__img" height="100" width="100">
             </div>
-        </a>
+        </div>
 
         {% if forloop.counter < dishes.beverages.count %}
         <div class="item-divider">
@@ -201,4 +201,9 @@
     {% endif %}
 </main>
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'js/order.js' %}"></script>
+{% endblock scripts %}
+
 
