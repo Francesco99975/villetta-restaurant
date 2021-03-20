@@ -18,13 +18,13 @@ ready(() => {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
             res = JSON.parse(xhr.responseText);
-            res['specials'].forEach(el => items.push({'id': el.pk, ...el.fields}))
-            res['antipasti'].forEach(el => items.push({'id': el.pk, ...el.fields}))
-            res['primi'].forEach(el => items.push({'id': el.pk, ...el.fields}))
-            res['secondi'].forEach(el => items.push({'id': el.pk, ...el.fields}))
-            res['pizze'].forEach(el => items.push({'id': el.pk, ...el.fields}))
-            res['desserts'].forEach(el => items.push({'id': el.pk, ...el.fields}))
-            res['beverages'].forEach(el => items.push({'id': el.pk, ...el.fields}))
+            res['specials'].forEach(el => items.push({'id': el.pk, ...el.fields}));
+            res['antipasti'].forEach(el => items.push({'id': el.pk, ...el.fields}));
+            res['primi'].forEach(el => items.push({'id': el.pk, ...el.fields}));
+            res['secondi'].forEach(el => items.push({'id': el.pk, ...el.fields}));
+            res['pizze'].forEach(el => items.push({'id': el.pk, ...el.fields}));
+            res['desserts'].forEach(el => items.push({'id': el.pk, ...el.fields}));
+            res['beverages'].forEach(el => items.push({'id': el.pk, ...el.fields}));
             checkoutBtn.setAttribute('data-count', res['bag-qty']);
           } else {
             console.log('Error: ' + xhr.status); 

@@ -100,6 +100,13 @@ def items(request):
     })
 
 
+def cart_items(request):
+    cart = Cart(request.session)
+    return JsonResponse({
+        'items': serializers.serialize('json', cart.products)
+    })
+
+
 def add_to_bag(request, dish_id):
     cart = Cart(request.session)
     dish = Dish.objects.all().get(id=dish_id)
@@ -116,6 +123,15 @@ def remove_from_bag(request, dish_id):
     cart.remove(dish)
     return JsonResponse({
         'message': f'{dish.name} removed from Bag!',
+        'bag-qty': cart.count
+    })
+
+
+def clear_bag(request):
+    cart = Cart(request.session)
+    cart.clear()
+    return JsonResponse({
+        'message': 'Bag Cleared!',
         'bag-qty': cart.count
     })
 

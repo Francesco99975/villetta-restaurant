@@ -1,28 +1,48 @@
-
+{% load static %}
 {% load carton_tags %}
 <html>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    </head>
+    <body>
+        <a href="{% url 'order' %}" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+        </a>
+        <header class="order-header">
+            <h1>Your Order</h1>
+        </header>
 
-<h1>Shopping Cart</h1>
 
-{% get_cart as cart %}
+        {% get_cart as cart %}
 
-    <table border="1">
-    <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-    </tr>
-    {% for item in cart.items %}
-    <tr>
-        <td>{{ item.product }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.subtotal }}</td>
-    </tr>
-        {% endfor %}
-    </table>
+        <main class="bag-container">
+            {% if  cart.count > 0%}
+            <button class="clear-btn">Clear Order</button>
+            <ul class="order-list">
+                {% for item in cart.items %}
+                <li class="order-item">
+                    <div class="order-details">
+                        <span>{{ item.quantity }}x. {{ item.product }}</span>
+                        <span>${{ item.subtotal }}</span>
+                    </div>
+                    <button class="remove-btn">
+                        <i class="fas fa-minus-circle"></i>
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+            <h2 class="order-tot">Total: ${{ cart.total }}</h2>
+            <button class="continue-btn">Continue</button>
+            {% else %}
+            <h1 class="empty-msg">The bag is empty!</h1>
+            {% endif %}
+        </main>
+    </body>
 
-    Total: {{ cart.total }}
-
-</body>
+    <script src="{% static 'js/checkout.js' %}"></script>
 </html>
