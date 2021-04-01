@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from .models import Setting
+from django.core import serializers
 
-# Create your views here.
+
+def prefs(request):
+    prefs = Setting.objects.all()
+
+    return JsonResponse({
+        'settings': serializers.serialize('json', prefs)
+    })

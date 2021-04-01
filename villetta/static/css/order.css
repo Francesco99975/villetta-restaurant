@@ -34,12 +34,20 @@
 
 .order-item {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   width: 100%;
   padding: 0.5rem;
   background-color: #fffdd0;
   cursor: pointer;
+}
+
+.order-item__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .order-item__info {
@@ -55,6 +63,65 @@
 
 .order-item__info h3 {
   margin: 0.3rem;
+}
+
+.order-item__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.btn-add {
+  border-radius: 10px;
+  background: #083995;
+  color: #d0e025;
+  width: 35%;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: none;
+  text-align: center;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.order-item__qty {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+
+.order-item__qty .qty {
+  color: #083995;
+  font-size: 1.1rem;
+}
+
+.btn-dec {
+  background-color: red;
+}
+
+.btn-inc {
+  background-color: #12bd12;
+}
+
+.btn-dec,
+.btn-inc {
+  border-radius: 25%;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-dec i,
+.btn-inc i {
+  color: white;
+  font-size: 0.7rem;
 }
 
 .order-item__image {

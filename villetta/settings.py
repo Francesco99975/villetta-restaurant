@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'settings.apps.SettingsConfig',
     'preferences',
     'carton',
+    'rest_framework',
+    'corsheaders',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,6 +60,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -150,8 +154,34 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Preferences Settings
+
 SITE_ID = 1
 
+# Cart Settings
+
 CART_PRODUCT_MODEL = 'dishes.models.Dish'
+
+# CORS Settings
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = ('http://localhost:4200', )
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:4200',
+]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
 
 django_heroku.settings(locals())

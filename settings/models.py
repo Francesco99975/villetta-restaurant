@@ -10,6 +10,7 @@ class Setting(Preferences):
     address = models.CharField(max_length=100)
     facebook_link = models.CharField(max_length=300)
     instagram_link = models.CharField(max_length=300)
+    home_delivery_available = models.BooleanField(default=True)
 
     monday_opening_time = models.TimeField(default=timezone.now)
     monday_closing_time = models.TimeField(default=timezone.now)
