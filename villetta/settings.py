@@ -44,6 +44,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1',
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'dishes.apps.DishesConfig',
+    # 'orders.apps.OrdersConfig',
     'settings.apps.SettingsConfig',
     'preferences',
     'carton',
@@ -183,5 +184,8 @@ CORS_ALLOW_HEADERS = [
 ]
 SESSION_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SECURE = True
+
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_PRIVATE_KEY')
 
 django_heroku.settings(locals())
