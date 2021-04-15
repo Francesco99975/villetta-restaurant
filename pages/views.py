@@ -1,6 +1,6 @@
 import json
 from django.http import JsonResponse, HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from rest_framework.parsers import JSONParser
 from dishes.models import Dish
@@ -9,66 +9,69 @@ from django.views.decorators.csrf import csrf_exempt
 from carton.cart import Cart
 
 
+# def index(request):
+#     specials = Dish.objects.all().filter(is_published=True, is_special=True)
+#     antipasti = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="A")
+#     primi = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="P")
+#     secondi = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="S")
+#     pizze = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="Z")
+#     desserts = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="D")
+#     beverages = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="B")
+
+#     context = {
+#         'specials': specials,
+#         'dishes': {
+#             'antipasti': antipasti,
+#             'primi': primi,
+#             'secondi': secondi,
+#             'pizze': pizze,
+#             'desserts': desserts,
+#             'beverages': beverages,
+#             'qty': len(antipasti) + len(primi) + len(secondi) + len(pizze) + len(desserts) + len(beverages)
+#         },
+#         'checkout': False
+#     }
+#     return render(request, 'pages/index.html', context)
+
 def index(request):
-    specials = Dish.objects.all().filter(is_published=True, is_special=True)
-    antipasti = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="A")
-    primi = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="P")
-    secondi = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="S")
-    pizze = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="Z")
-    desserts = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="D")
-    beverages = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="B")
-
-    context = {
-        'specials': specials,
-        'dishes': {
-            'antipasti': antipasti,
-            'primi': primi,
-            'secondi': secondi,
-            'pizze': pizze,
-            'desserts': desserts,
-            'beverages': beverages,
-            'qty': len(antipasti) + len(primi) + len(secondi) + len(pizze) + len(desserts) + len(beverages)
-        },
-        'checkout': False
-    }
-    return render(request, 'pages/index.html', context)
+    return redirect('/admin')
 
 
-def order(request):
-    specials = Dish.objects.all().filter(is_published=True, is_special=True)
-    antipasti = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="A")
-    primi = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="P")
-    secondi = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="S")
-    pizze = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="Z")
-    desserts = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="D")
-    beverages = Dish.objects.all().filter(
-        is_published=True, is_special=False, course_type="B")
+# def order(request):
+#     specials = Dish.objects.all().filter(is_published=True, is_special=True)
+#     antipasti = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="A")
+#     primi = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="P")
+#     secondi = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="S")
+#     pizze = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="Z")
+#     desserts = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="D")
+#     beverages = Dish.objects.all().filter(
+#         is_published=True, is_special=False, course_type="B")
 
-    context = {
-        'specials': specials,
-        'dishes': {
-            'antipasti': antipasti,
-            'primi': primi,
-            'secondi': secondi,
-            'pizze': pizze,
-            'desserts': desserts,
-            'beverages': beverages,
-            'qty': len(antipasti) + len(primi) + len(secondi) + len(pizze) + len(desserts) + len(beverages)
-        },
-        'checkout': True
-    }
-    return render(request, 'pages/order.html', context)
+#     context = {
+#         'specials': specials,
+#         'dishes': {
+#             'antipasti': antipasti,
+#             'primi': primi,
+#             'secondi': secondi,
+#             'pizze': pizze,
+#             'desserts': desserts,
+#             'beverages': beverages,
+#             'qty': len(antipasti) + len(primi) + len(secondi) + len(pizze) + len(desserts) + len(beverages)
+#         },
+#         'checkout': True
+#     }
+#     return render(request, 'pages/order.html', context)
 
 
 def items(request):
