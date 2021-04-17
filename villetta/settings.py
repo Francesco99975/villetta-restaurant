@@ -35,7 +35,7 @@ DEBUG = True if os.getenv('DEBUG') == "True" else False
 
 # DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'villetta-app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'villetta-app', '192.168.0.38']
 
 
 # Application definition
@@ -167,13 +167,14 @@ CART_PRODUCT_MODEL = 'dishes.models.Dish'
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ('http://villetta-app', 'http://villetta-app:80', 'http://localhost:80',
-                         'http://localhost', 'http://localhost:4200')
+                         'http://localhost', 'http://localhost:4200', 'http://192.168.0.38')
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost'
     'http://localhost:80'
     'http://localhost:4200',
     'http://villetta-app'
-    'http://villetta-app:80'
+    'http://villetta-app:80',
+    'http://192.168.0.38'
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
