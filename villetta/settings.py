@@ -168,7 +168,7 @@ CART_PRODUCT_MODEL = 'dishes.models.Dish'
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = ('http://villetta-app', 'http://villetta-app:80', 'http://localhost:80',
-                         'http://localhost', 'http://localhost:4200', 'http://localhost:4000', 'http://192.168.0.38', 'http://192.168.0.38:80', 'villetta.francescobarranca.dev')
+                         'http://localhost', 'http://localhost:4200', 'http://localhost:4000', 'http://192.168.0.38', 'http://192.168.0.38:80', 'https://villetta.francescobarranca.dev')
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost'
     'http://localhost:80'
@@ -178,7 +178,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://villetta-app:80',
     'http://192.168.0.38',
     'http://192.168.0.38:80',
-    'villetta.francescobarranca.dev'
+    'https://villetta.francescobarranca.dev'
 ]
 CORS_ALLOW_HEADERS = [
     'accept',
